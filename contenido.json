@@ -1,12 +1,150 @@
 {"contenido": [
-    {"tag": "saludo",
-      "patrones": ["hola","un saludo","hello"],
-      "respuestas": ["Hola que tal!","Como te va?","Un gusto de verte"]
-
+    {
+      "tag": "saludo",
+      "patrones": ["Hola", "Buenas dias", "¿Qué tal?", "Buenas tardes", "Buenas noches"],
+      "respuestas": ["¡Hola! ¿En qué puedo ayudarte?", "Hola, ¿en qué puedo ayudarte hoy?"]
     },
-    {"tag": "despedida",
-      "patrones": ["adios","Hasta la proxima","nos vemos"],
-      "respuestas": ["cuidate","nos vemos pronto","te estare esperando"]
+    {
+      "tag": "menu",
+      "patrones": ["¿Qué hay para comer?", "¿Qué tienen en el menú?", "Quiero ver el menú"],
+      "respuestas": ["Tenemos hamburguesas, perros calientes, papas fritas, pizzas y refrescos. ¿Te gustaría pedir algo en específico?"]
+    },
+
+    {
+      "tag": "hamburguesa",
+      "patrones": ["Quiero una hamburguesa", "Dame una hamburguesa", "Que hamburguesas tienen"],
+      "respuestas": ["Tenemos hamburguesas de queso, hamburguesas dobles, hamburguesas vegetarianas. ¿Quieres conocer más sobre alguna de ellas en específico?"]
+    },
+    {
+      "tag": "hamburguesa_queso",
+      "patrones": ["Quiero una hamburguesa de queso", "Dame una hamburguesa con queso", "Hamburguesa con queso"],
+      "respuestas": ["¡Nuestra hamburguesa de queso es una de las más populares! Está hecha con carne 100% de res, queso americano derretido y una deliciosa salsa especial. ¿Quieres agregar papas fritas y refresco por $5000 pesos más?"]
+    },
+    {
+      "tag": "hamburguesa_doble",
+      "patrones": ["Quiero una hamburguesa doble", "Dame una hamburguesa con doble carne", "Hamburguesa doble"],
+      "respuestas": ["¡Nuestra hamburguesa doble es perfecta para los que tienen un gran apetito! Está hecha con dos carnes 100% de res, queso, lechuga, tomate y nuestra deliciosa salsa especial. ¿Quieres agregar papas fritas y refresco por $5000 pesos más?"]
+    },
+    {
+      "tag": "hamburguesa_vegetariana",
+      "patrones": ["Quiero una hamburguesa vegetariana", "Dame una hamburguesa sin carne", "Hamburguesa vegetariana"],
+      "respuestas": ["¡Nuestra hamburguesa vegetariana es una opción deliciosa y saludable! Está hecha con una hamburguesa vegetariana de proteína de soja, queso, lechuga, tomate y nuestra deliciosa salsa especial. ¿Quieres agregar papas fritas y refresco por $5000 pesos más?"]
+    },
+
+    {
+      "tag": "perros_calientes",
+      "patrones": ["Quiero un perro caliente", "Dame un perro caliente", "Que perros calientes tienen"],
+      "respuestas": ["Tenemos perros calientes clásicos, perros calientes con queso, perros calientes con tocino y el perro caliente especial de la casa. ¿Quieres conocer más sobre alguna de ellas en específico?"]
+    },
+    {
+      "tag": "perro_caliente_clasico",
+      "patrones": ["Quiero un perro caliente clásico", "Dame un perro caliente normal", "Perro caliente simple"],
+      "respuestas": ["Nuestro perro caliente clásico es sencillo pero delicioso. Está hecho con una salchicha 100% de res en un pan suave y fresco. ¿Quieres agregarle alguna salsa o aderezo?"]
+    },
+    {
+      "tag": "perro_caliente_queso",
+      "patrones": ["Quiero un perro caliente con queso", "Dame un perro caliente con queso", "Perro caliente con queso"],
+      "respuestas": ["Nuestro perro caliente con queso es una deliciosa opción para los amantes del queso. Está hecho con una salchicha 100% de res en un pan suave y fresco, con queso derretido encima. ¿Quieres agregarle alguna salsa o aderezo?"]
+    },
+    {
+      "tag": "perro_caliente_tocino",
+      "patrones": ["Quiero un perro caliente con tocino", "Dame un perro caliente con tocino", "Perro caliente con tocino"],
+      "respuestas": ["Nuestro perro caliente con tocino es una opción deliciosa y llena de sabor. Está hecho con una salchicha 100% de res en un pan suave y fresco, con tocino crujiente encima. ¿Quieres agregarle alguna salsa o aderezo?"]
+    },
+    {
+      "tag": "perro_caliente_especial",
+      "patrones": ["Quiero un perro caliente especial", "Dame un perro caliente de la casa", "Perro caliente especial", "Perro caliente especial de la casa"],
+      "respuestas": ["Nuestro perro caliente especial es una deliciosa combinación de sabores. Está hecho con una salchicha 100% de res en un pan suave y fresco, con queso derretido, tocino crujiente y nuestra deliciosa salsa especial. ¿Quieres conocer más sobre ella?"]
+    },
+
+    {
+      "tag": "papas fritas",
+      "patrones": ["Quiero papas fritas", "Dame una orden de papas", "Papas fritas con "],
+      "respuestas": ["¡Claro! ¿Quieres agregar refresco por $1000 pesos más?", "¿Con refresco incluido?", "¡Perfecto! En unos minutos tendrás tus papas fritas listas."]
+    },
+    {
+      "tag": "pizza",
+      "patrones": ["Quiero ordenar una pizza", "¿Qué tipos de pizza tienen?", "Me gustaría una pizza"],
+      "respuestas": ["¡Claro! ¿Qué tipo de pizza te gustaría? Tenemos de pepperoni, margarita y vegetariana."],
+       "context_set": ""
+    },
+    {
+      "tag": "pepperoni",
+      "patrones": ["Quiero una pizza de pepperoni", "Pizza con pepperoni", "Pepperoni"],
+      "respuestas": ["¡Perfecto! La pizza de pepperoni lleva salsa de tomate, queso mozzarella y por supuesto, pepperoni. ¿Algo más que te gustaría agregar?"],
+      "context_set": "pizza"
+    },
+    {
+      "tag": "margarita",
+      "patrones": ["Me gustaría una pizza margarita", "Pizza margarita", "Margarita"],
+      "respuestas": ["¡Excelente elección! La pizza margarita lleva salsa de tomate, queso mozzarella y albahaca fresca. ¿Te gustaría agregar algún otro ingrediente?"],
+      "context_set": "pizza"
+    },
+    {
+      "tag": "vegetarian",
+      "patrones": ["Quiero una pizza vegetariana", "Pizza vegetariana", "Vegetariana"],
+      "respuestas": ["¡Delicioso! La pizza vegetariana lleva salsa de tomate, queso mozzarella, pimientos, cebolla y champiñones. ¿Te gustaría agregar algún otro ingrediente?"],
+      "context_set": "pizza"
+    },
+    {
+      "tag": "agregar_ingrediente",
+      "patrones": ["Sí, me gustaría agregar {ingredient}"],
+      "respuestas": ["¡Genial! Agregaremos {ingredient} a tu pizza."],
+      "context_filter": "pizza"
+    },
+{
+      "tag": "bebida",
+      "patrones": ["Quiero ordenar una bebida", "¿Qué tipos de bebidas tienen?", "Me gustaría una bebida"],
+      "respuestas": ["¡Claro! ¿Qué tipo de bebida te gustaría? Tenemos gaseosas, agua, jugos y batidos."],
+      "context_set": ""
+    },
+    {
+      "tag": "gaseosa",
+      "patrones": ["Quiero una gaseosa", "Refresco", "Soda"],
+      "respuestas": ["¡Perfecto! Tenemos Coca-Cola, Pepsi, Sprite y Fanta. ¿Cuál te gustaría?"],
+      "context_set": "bebida"
+    },
+    {
+      "tag": "agua",
+      "patrones": ["Quiero agua", "Agua", "Botella de agua"],
+      "respuestas": ["¡Claro! Tenemos agua natural y agua mineral. ¿Cuál prefieres?"],
+      "context_set": "bebida"
+    },
+    {
+      "tag": "jugo",
+      "patrones": ["Me gustaría un jugo", "Jugo", "Jugos naturales"],
+      "respuestas": ["¡Excelente elección! Tenemos jugo de naranja, piña, manzana y fresa. ¿Cuál te apetece?"],
+      "context_set": "bebida"
+    },
+    {
+      "tag": "batido",
+      "patrones": ["Quiero un batido", "Batido", "Smoothie"],
+      "respuestas": ["Tenemos batidos de plátano, fresa, mango y piña. ¿Cuál te gustaría probar?"],
+      "context_set": "bebida"
+    },
+
+    {
+      "tag": "afirmacion",
+      "patrones": ["si, si quiero", "si", "si, por favor"],
+      "respuestas": ["Agregado al pedido"]
+    },
+
+    {
+      "tag": "negacion",
+      "patrones": ["no, no quiero", "no", "no, asi está bien"],
+      "respuestas": ["Esta bien, realizando pedido"]
+    },
+
+    {
+      "tag": "despedida",
+      "patrones": ["Adiós", "Hasta luego", "Chao"],
+      "respuestas": ["¡Gracias por visitarnos! ¡Que tengas un buen día!", "¡Hasta pronto! ¡Vuelve pronto!"]
+    },
+    {
+      "tag": "no_entendido",
+      "patrones": ["Lo siento, no te entiendo", "No entiendo lo que estás diciendo", "¿Podrías repetir eso?"],
+      "respuestas": ["Lo siento, no estoy seguro de entender. ¿Podrías reformular tu pregunta o solicitud?", "Disculpa, no estoy programado para entender eso. ¿Podrías decirlo de otra manera?"]
     }
+
   ]
 }

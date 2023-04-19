@@ -68,19 +68,16 @@ except:
 tensorflow.compat.v1.reset_default_graph()
 
 red = tflearn.input_data(shape=[None, len(entrenamiento[0])])
-red = tflearn.fully_connected(red,10)
-red = tflearn.fully_connected(red,10)
+red = tflearn.fully_connected(red,15)
+red = tflearn.fully_connected(red,15)
 red = tflearn.fully_connected(red, len(salida[0]), activation="softmax")
 red = tflearn.regression(red)
 
 modelo = tflearn.DNN(red)
 
-try:
-    modelo.load("modelo.tflearn")
-except:
-    #batch se debe agregar la cantidad que tenemos de patrones
-    modelo.fit(entrenamiento, salida, n_epoch=1000, batch_size=10, show_metric=True)
-    modelo.save("modelo.tflearn")
+#batch se debe agregar la cantidad que tenemos de patrones
+modelo.fit(entrenamiento, salida, n_epoch=1500, batch_size=15, show_metric=True)
+modelo.save("modelo.tflearn")
 
 nombreBot = "FastFoods"
 def obtenerRespuesta(entrada):
