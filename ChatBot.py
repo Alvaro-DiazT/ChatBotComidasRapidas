@@ -8,12 +8,15 @@ import tflearn
 import tensorflow
 import json
 import random
+
 # para guardar nuestro modelo( y no mantener cargandolo
 import pickle
-#nltk.download('punkt')
+nltk.download('punkt')
 #Para abrir el archivo json
 with open("contenido.json", encoding="utf-8") as archivo:
     datos = json.load(archivo)
+
+
 try:
     with open("variables.pickle", "rb") as archivoPickle:
         palabras, tags, entrenamiento, salida = pickle.load(archivoPickle)
@@ -83,6 +86,7 @@ nombreBot = "FastFoods"
 def obtenerRespuesta(entrada):
     #while True:
       #  entrada = input("Tu: ")
+    conversacion = []
     cubeta = [0 for _ in range(len(palabras))]
     entradaProcesada = nltk.word_tokenize(entrada)
     entradaProcesada = [stemmer.stem(palabra.lower()) for palabra in entradaProcesada]
@@ -97,12 +101,17 @@ def obtenerRespuesta(entrada):
     for tagAux in datos["contenido"]:
         if tagAux["tag"] == tag:
             return random.choice(tagAux["respuestas"])
-
+    conversacion.append({'Usuario': entrada, 'Chatbot': tag})
     return "No te entendi..."
 
 
-
-
+#
+# Escribe la lista de conversación en un archivo CSV
+with open('conversacion.csv', 'w', newline='') as f:
+    writer = csv.DictWriter(f, fieldnames=['Usuario', 'Chatbot'])
+    writer.writeheader()
+    for linea in conversacion:
+        writer.writerow(linea)
 
 
 

@@ -1,6 +1,7 @@
 from builtins import bool
 from tkinter import *
 from ChatBot import obtenerRespuesta, nombreBot
+import csv
 
 BG_GRIS = "#ABB2B9"
 BG_COLOR = "#17202A"
