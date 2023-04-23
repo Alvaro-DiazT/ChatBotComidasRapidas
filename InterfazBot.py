@@ -2,6 +2,9 @@ from builtins import bool
 from tkinter import *
 from ChatBot import obtenerRespuesta, nombreBot
 import csv
+import sys
+
+
 
 BG_GRIS = "#ABB2B9"
 BG_COLOR = "#17202A"
@@ -65,9 +68,12 @@ class AplicacionChat:
         msg = self.msg_entry.get()
         self._insert_message(msg, "Tú")
 
+
     def _insert_message(self, msg, sender):
+
         if not msg:
             return
+
 
         self.msg_entry.delete(0, END)
         msg1 = f"{sender}: {msg}\n\n"
@@ -75,14 +81,40 @@ class AplicacionChat:
         self.text_widget.insert(END, msg1)
         self.text_widget.configure( state=DISABLED)
 
-        msg2 = f"{nombreBot}: {obtenerRespuesta(msg)}\n\n"
+        respuestaBot=obtenerRespuesta(msg)
+        msg2 = f"{nombreBot}: {respuestaBot}\n\n"
         self.text_widget.configure(state=NORMAL)
         self.text_widget.insert(END, msg2)
         self.text_widget.configure(state=DISABLED)
 
         self.text_widget.see(END)
 
+        conversacion.append({'Usuario': msg, 'Chatbot': respuestaBot})
 
+
+
+        # Escribe la lista de conversación en un archivo CSV
+        with open('conversacion.csv', 'w', newline='') as f:
+            writer = csv.DictWriter(f, fieldnames=['Usuario', 'Chatbot'])
+            writer.writeheader()
+            for linea in conversacion:
+                writer.writerow(linea)
+        with open('conversacion.csv', 'r') as f:
+            reader = csv.reader(f)
+            for row in reader:
+                print(row)
+        if respuestaBot == "hasta luego":
+            sys.exit(0)
+        return
+
+
+
+
+
+
+
+
+conversacion = []
 if __name__ == "__main__":
     app = AplicacionChat()
     app.run()

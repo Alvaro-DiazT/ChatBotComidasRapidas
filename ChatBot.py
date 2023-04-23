@@ -8,6 +8,9 @@ import tflearn
 import tensorflow
 import json
 import random
+import csv
+
+
 
 # para guardar nuestro modelo( y no mantener cargandolo
 import pickle
@@ -79,14 +82,14 @@ red = tflearn.regression(red)
 modelo = tflearn.DNN(red)
 
 #batch se debe agregar la cantidad que tenemos de patrones
-modelo.fit(entrenamiento, salida, n_epoch=1500, batch_size=15, show_metric=True)
+modelo.fit(entrenamiento, salida, n_epoch=3000, batch_size=15, show_metric=True)
 modelo.save("modelo.tflearn")
 
 nombreBot = "FastFoods"
+
 def obtenerRespuesta(entrada):
     #while True:
       #  entrada = input("Tu: ")
-    conversacion = []
     cubeta = [0 for _ in range(len(palabras))]
     entradaProcesada = nltk.word_tokenize(entrada)
     entradaProcesada = [stemmer.stem(palabra.lower()) for palabra in entradaProcesada]
@@ -101,17 +104,8 @@ def obtenerRespuesta(entrada):
     for tagAux in datos["contenido"]:
         if tagAux["tag"] == tag:
             return random.choice(tagAux["respuestas"])
-    conversacion.append({'Usuario': entrada, 'Chatbot': tag})
+
+
     return "No te entendi..."
-
-
-#
-# Escribe la lista de conversación en un archivo CSV
-with open('conversacion.csv', 'w', newline='') as f:
-    writer = csv.DictWriter(f, fieldnames=['Usuario', 'Chatbot'])
-    writer.writeheader()
-    for linea in conversacion:
-        writer.writerow(linea)
-
 
 

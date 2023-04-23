@@ -138,7 +138,8 @@
     {
       "tag": "despedida",
       "patrones": ["Adiós", "Hasta luego", "Chao"],
-      "respuestas": ["¡Gracias por visitarnos! ¡Que tengas un buen día!", "¡Hasta pronto! ¡Vuelve pronto!"]
+      "respuestas": ["hasta luego"]
+
     },
     {
       "tag": "no_entendido",
